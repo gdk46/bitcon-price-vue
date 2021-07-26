@@ -1,18 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/digital-currency.png" height="200">
+    <h1>Preços do Bitcoin</h1>
+    <Bitcon
+      v-bind:currencyBitcon="info"
+    >
+    </Bitcon>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Bitcon from './components/Bitcon.vue'
+import axios from 'axios'
 
 export default {
   name: 'App',
+  
   components: {
-    HelloWorld
-  }
+    Bitcon
+  },
+
+  data() {
+    return {
+      info: null,
+    }
+  },
+
+  mounted() {
+    axios
+      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then((response) => {
+        this.info = response.data.bpi;
+        return this.info;
+      })
+  },
 }
 </script>
 
