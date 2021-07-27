@@ -15,20 +15,27 @@
 </template>
 
 <script>
+import axios from 'axios'
+
+
 export default {
   name: "Bitcon",
-  props: {
-    currencyBitcon: Object
-  },
+  props: ['currencyBitcon'],
 
   data() {
     return {
-      info: this.currencyBitcon,
+      info: null,
     }
   },
 
-  methods: {},
-
+  mounted() {
+    axios
+      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then((response) => {
+        this.info = response.data.bpi;
+        return this.info;
+      })
+  },
   filters: {
     currencydecimal(value) {
       return value.toFixed(2)
