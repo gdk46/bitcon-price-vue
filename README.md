@@ -35,6 +35,7 @@ Este aplicativo foi desenvolvido com Vue 3 com intuito de apredizagem.
 <p align="center">
 <img src="./preview.png"/>
 </p>
+
 ## Estrutura de pastas
 <pre>
 Projeto/
@@ -102,4 +103,4 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 ## Licença
 Este projeto esta sobe a licença MIT.
 
-Feito com :heart: por Gleisson Neves 👋🏽S
+Feito com :heart: por Gleisson Neves 👋🏽
